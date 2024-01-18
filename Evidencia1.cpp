@@ -17,3 +17,11 @@ string readFile(string filename){
     }
     return text;
 }
+
+struct Bitacora {
+   std::string mes;
+   int dia;
+   std::string hora;
+   std::string ipOrigen;
+   std::string razonFalla;
+};
