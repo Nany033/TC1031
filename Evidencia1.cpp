@@ -1,10 +1,19 @@
 #include <iostream>
-#include <stdio.h>
 #include <fstream>
 #include <vector>
+#include <string>
 
 using namespace std;
-
-void readArch(){
-    
+string readFile(string filename){
+    //Complexity: O(n)
+    //Read the file of filename and return it as a concatenated string
+    fstream fileStream(filename);
+    string text="";
+    if (fileStream.is_open()){
+        string line;
+        while(getline(fileStream,line)){
+            text+=line;
+        }
+    }
+    return text;
 }
