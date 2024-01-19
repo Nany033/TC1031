@@ -12,6 +12,7 @@ struct Bitacora {
  int dia;
  string hora;
  string ipOrigen;
+ int puerto;
  string razonFalla;
 };
 
