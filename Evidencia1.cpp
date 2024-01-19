@@ -102,31 +102,3 @@ int main() {
 
     return 0;
 }
-
-    // aqui se inicia la busqueda de los datos
-    std::cout << "Registros correspondientes al rango de fechas:" << std::endl;
-    for (const auto& b : bitacora) {
-        if ((b.mes > buscarDesde.mes || (b.mes == buscarDesde.mes && b.dia > buscarDesde.dia) ||
-            (b.mes == buscarDesde.mes && b.dia == buscarDesde.dia && b.hora >= buscarDesde.hora)) &&
-            (b.mes < buscarHasta.mes || (b.mes == buscarHasta.mes && b.dia < buscarHasta.dia) ||
-                (b.mes == buscarHasta.mes && b.dia == buscarHasta.dia && b.hora <= buscarHasta.hora))) {
-            // aqui mostramos las fechas entre los rangos indicados
-            std::cout << b.mes << " " << b.dia << " " << b.hora << " " << b.ipOrigen << " " << b.razonFalla << std::endl;
-        }
-    }
-
-    // aqui lo guardamos en el nuevo archivo txt
-    std::ofstream archivoOrdenado("bitacora_ordenada.txt");
-    if (archivoOrdenado.is_open()) {
-        for (const auto& b : bitacora) {
-            archivoOrdenado << b.mes << " " << b.dia << " " << b.hora << " " << b.ipOrigen << " " << b.razonFalla << std::endl;
-        }
-        archivoOrdenado.close();
-        std::cout << "Resultado del ordenamiento almacenado en 'bitacora_ordenada.txt'" << std::endl;
-    }
-    else {
-        std::cerr << "No se pudo abrir el archivo para escribir el resultado del ordenamiento." << std::endl;
-    }
-
-    return 0;
-}
